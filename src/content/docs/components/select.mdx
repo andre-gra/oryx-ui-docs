@@ -1,0 +1,133 @@
+---
+title: Select
+description: Displays a list of options for the user to pick from—triggered by a button.
+---
+
+# Select
+
+The `Select` component displays a dropdown list of options for the user to choose from. It supports grouped options and custom labels.
+
+## Import
+
+```tsx
+import { Select } from 'oryx-ui';
+```
+
+## Usage
+
+```tsx
+import { Select } from 'oryx-ui';
+
+<Select
+  label="Choose fruit"
+  placeholder="Select..."
+  options={[
+    { label: "Fruits", group: [{ value: "apple", label: "Apple" }] }
+  ]}
+  onValueChange={(value) => console.log(value)}
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `string` | - | Label text displayed above the select |
+| `placeholder` | `string` | - | Placeholder text when no option is selected |
+| `options` | `SelectOptionGroup[]` | Required | Array of option groups |
+| `onValueChange` | `(value: string) => void` | - | Callback when selection changes |
+| `defaultValue` | `string` | - | Default selected value |
+| `disabled` | `boolean` | `false` | Whether the select is disabled |
+
+### SelectOptionGroup
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `label` | `string` | Label for the option group |
+| `group` | `SelectOption[]` | Array of options in this group |
+
+### SelectOption
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `value` | `string` | The value of the option |
+| `label` | `string` | Display label for the option |
+
+## Examples
+
+### Basic Select
+
+```tsx
+<Select
+  label="Choose a color"
+  placeholder="Select a color..."
+  options={[
+    { 
+      label: "Colors", 
+      group: [
+        { value: "red", label: "Red" },
+        { value: "blue", label: "Blue" },
+        { value: "green", label: "Green" }
+      ] 
+    }
+  ]}
+  onValueChange={(value) => console.log('Selected:', value)}
+/>
+```
+
+### Multiple Groups
+
+```tsx
+<Select
+  label="Choose food"
+  placeholder="Select..."
+  options={[
+    { 
+      label: "Fruits", 
+      group: [
+        { value: "apple", label: "Apple" },
+        { value: "banana", label: "Banana" },
+        { value: "orange", label: "Orange" }
+      ] 
+    },
+    { 
+      label: "Vegetables", 
+      group: [
+        { value: "carrot", label: "Carrot" },
+        { value: "broccoli", label: "Broccoli" },
+        { value: "spinach", label: "Spinach" }
+      ] 
+    }
+  ]}
+  onValueChange={(value) => console.log('Selected:', value)}
+/>
+```
+
+### With Default Value
+
+```tsx
+<Select
+  label="Theme"
+  placeholder="Select theme..."
+  defaultValue="dark"
+  options={[
+    { 
+      label: "Themes", 
+      group: [
+        { value: "light", label: "Light Mode" },
+        { value: "dark", label: "Dark Mode" },
+        { value: "system", label: "System" }
+      ] 
+    }
+  ]}
+  onValueChange={(value) => setTheme(value)}
+/>
+```
+
+## Accessibility
+
+The Select component includes:
+
+- Full keyboard navigation
+- ARIA listbox pattern implementation
+- Screen reader announcements for selections

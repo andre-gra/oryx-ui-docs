@@ -1,0 +1,165 @@
+---
+title: NavigationMenu
+description: A navigation menu that provides a set of links for navigating a website or application.
+---
+
+# NavigationMenu
+
+The `NavigationMenu` component provides a responsive and accessible navigation system with support for dropdown menus, cards, and simple links.
+
+## Import
+
+```tsx
+import { NavigationMenu } from 'oryx-ui';
+```
+
+## Usage
+
+```tsx
+import { NavigationMenu } from 'oryx-ui';
+
+<NavigationMenu
+  items={[
+    {
+      title: "Products",
+      item: [
+        { type: "card", title: "Featured", href: "/", text: "Our main product" },
+        { type: "text", title: "Other", href: "/other", text: "Description" }
+      ]
+    },
+    { title: "About", href: "/about" }
+  ]}
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `items` | `NavItem[]` | Required | Array of navigation items |
+
+### NavItem
+
+Navigation items can be either a dropdown menu or a simple link:
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `title` | `string` | Display text for the navigation item |
+| `href` | `string` | (Optional) Direct link URL - makes it a simple link |
+| `item` | `NavSubItem[]` | (Optional) Sub-items for dropdown - makes it a dropdown menu |
+
+### NavSubItem
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `type` | `"card" \| "text"` | Display style of the sub-item |
+| `title` | `string` | Title of the sub-item |
+| `href` | `string` | Link URL |
+| `text` | `string` | Description text |
+
+## Examples
+
+### Complete Navigation
+
+```tsx
+<NavigationMenu
+  items={[
+    {
+      title: "Products",
+      item: [
+        { 
+          type: "card", 
+          title: "Oryx UI", 
+          href: "/products/oryx", 
+          text: "Beautiful React components with intelligent theming" 
+        },
+        { 
+          type: "text", 
+          title: "Components", 
+          href: "/products/components", 
+          text: "Browse our component library" 
+        },
+        { 
+          type: "text", 
+          title: "Templates", 
+          href: "/products/templates", 
+          text: "Ready-to-use page templates" 
+        }
+      ]
+    },
+    {
+      title: "Resources",
+      item: [
+        { 
+          type: "text", 
+          title: "Documentation", 
+          href: "/docs", 
+          text: "Learn how to use Oryx UI" 
+        },
+        { 
+          type: "text", 
+          title: "API Reference", 
+          href: "/api", 
+          text: "Detailed API documentation" 
+        }
+      ]
+    },
+    { title: "Pricing", href: "/pricing" },
+    { title: "About", href: "/about" }
+  ]}
+/>
+```
+
+### Simple Navigation
+
+```tsx
+<NavigationMenu
+  items={[
+    { title: "Home", href: "/" },
+    { title: "Features", href: "/features" },
+    { title: "Pricing", href: "/pricing" },
+    { title: "Contact", href: "/contact" }
+  ]}
+/>
+```
+
+### With Featured Card
+
+```tsx
+<NavigationMenu
+  items={[
+    {
+      title: "Getting Started",
+      item: [
+        { 
+          type: "card", 
+          title: "Quick Start Guide", 
+          href: "/quickstart", 
+          text: "Get up and running in 5 minutes" 
+        },
+        { 
+          type: "text", 
+          title: "Installation", 
+          href: "/install", 
+          text: "Step-by-step installation guide" 
+        },
+        { 
+          type: "text", 
+          title: "First Component", 
+          href: "/first-component", 
+          text: "Build your first component" 
+        }
+      ]
+    }
+  ]}
+/>
+```
+
+## Accessibility
+
+The NavigationMenu includes:
+
+- Full keyboard navigation
+- ARIA menu pattern implementation
+- Focus management for dropdowns
+- Escape key closes menus

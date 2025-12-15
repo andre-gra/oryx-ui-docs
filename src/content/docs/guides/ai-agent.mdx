@@ -1,0 +1,152 @@
+---
+title: AI Theme Agent
+description: Learn about the intelligent theme agent that learns your preferences.
+---
+
+# AI Theme Agent
+
+Oryx UI includes an intelligent AI-powered theme agent that learns from user interactions and automatically applies optimal theme combinations based on time and context.
+
+## Enabling the Agent
+
+The theme agent is enabled by default. You can control it via the `OryxProvider`:
+
+```tsx
+import { OryxProvider } from 'oryx-ui';
+import 'oryx-ui/styles.css';
+
+// Agent enabled (default)
+<OryxProvider enableAgent={true}>
+  <App />
+</OryxProvider>
+
+// Agent disabled
+<OryxProvider enableAgent={false}>
+  <App />
+</OryxProvider>
+```
+
+## Using the Agent Hook
+
+Access the agent's state and recommendations using `useThemeAgent`:
+
+```tsx
+import { useThemeAgent } from 'oryx-ui';
+
+function Settings() {
+  const { state, recommendation, getInsights } = useThemeAgent();
+  
+  return (
+    <div>
+      <p>Interactions tracked: {state.interactionCount}</p>
+      <p>Recommended theme: {recommendation}</p>
+      <button onClick={() => console.log(getInsights())}>
+        View Insights
+      </button>
+    </div>
+  );
+}
+```
+
+### Hook Return Values
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `state` | `AgentState` | Current state of the agent |
+| `recommendation` | `string` | Recommended theme based on learning |
+| `getInsights` | `() => Insights` | Function to get detailed insights |
+
+### AgentState
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `interactionCount` | `number` | Total interactions tracked |
+| `isLearning` | `boolean` | Whether the agent is actively learning |
+| `lastUpdate` | `Date` | Last time the agent updated |
+
+## Built-in UI Panel
+
+Oryx UI provides a ready-to-use `ThemeAgentPanel` component:
+
+```tsx
+import { ThemeAgentPanel } from 'oryx-ui';
+
+function SettingsPage() {
+  return (
+    <div>
+      <h2>Theme Settings</h2>
+      <ThemeAgentPanel />
+    </div>
+  );
+}
+```
+
+The panel displays:
+- Current theme and recommendations
+- Interaction statistics
+- Quick theme switching
+- Agent preferences
+
+## How It Works
+
+The AI Theme Agent:
+
+1. **Tracks Interactions** - Monitors which themes you use and when
+2. **Learns Patterns** - Identifies preferences based on time of day, screen brightness, and usage patterns
+3. **Makes Recommendations** - Suggests themes that match your preferences
+4. **Auto-Applies** - Optionally applies themes automatically based on context
+
+## Example: Complete Integration
+
+```tsx
+import { 
+  OryxProvider, 
+  useThemeAgent, 
+  ThemeAgentPanel,
+  useTheme 
+} from 'oryx-ui';
+import 'oryx-ui/styles.css';
+
+function App() {
+  return (
+    <OryxProvider defaultTheme="theme-amber" enableAgent={true}>
+      <Dashboard />
+    </OryxProvider>
+  );
+}
+
+function Dashboard() {
+  const { theme, changeTheme } = useTheme();
+  const { recommendation, state } = useThemeAgent();
+
+  return (
+    <div>
+      <header>
+        <h1>My App</h1>
+        <p>Current: {theme} | Recommended: {recommendation}</p>
+      </header>
+      
+      <main>
+        {/* Your app content */}
+      </main>
+      
+      <aside>
+        <ThemeAgentPanel />
+      </aside>
+    </div>
+  );
+}
+```
+
+## Privacy
+
+The theme agent:
+- Stores all data locally in the browser
+- Does not send data to external servers
+- Can be disabled at any time
+- Respects user preferences
+
+## Next Steps
+
+- Explore [available themes](/guides/theming/)
+- Browse the [Component Library](/components/accordion/)

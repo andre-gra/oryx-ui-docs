@@ -1,0 +1,157 @@
+---
+title: Theming
+description: Learn how to use and customize themes in Oryx UI.
+---
+
+# Theming
+
+Oryx UI comes with a powerful theming system featuring 40+ beautiful color palettes, each with light and dark mode variants.
+
+## Available Themes
+
+Themes follow the naming pattern `theme-{color}` for light mode and `theme-{color}Dark` for dark mode:
+
+| Light Theme | Dark Theme |
+|-------------|------------|
+| `theme-amber` | `theme-amberDark` |
+| `theme-blue` | `theme-blueDark` |
+| `theme-crimson` | `theme-crimsonDark` |
+| `theme-cyan` | `theme-cyanDark` |
+| `theme-green` | `theme-greenDark` |
+| `theme-indigo` | `theme-indigoDark` |
+| `theme-mint` | `theme-mintDark` |
+| `theme-orange` | `theme-orangeDark` |
+| `theme-pink` | `theme-pinkDark` |
+| `theme-plum` | `theme-plumDark` |
+| `theme-purple` | `theme-purpleDark` |
+| `theme-red` | `theme-redDark` |
+| `theme-sky` | `theme-skyDark` |
+| `theme-teal` | `theme-tealDark` |
+| `theme-tomato` | `theme-tomatoDark` |
+| `theme-violet` | `theme-violetDark` |
+| `theme-yellow` | `theme-yellowDark` |
+
+And more...
+
+## Setting a Default Theme
+
+Set the default theme when initializing the `OryxProvider`:
+
+```tsx
+import { OryxProvider } from 'oryx-ui';
+import 'oryx-ui/styles.css';
+
+function App() {
+  return (
+    <OryxProvider defaultTheme="theme-amber">
+      <YourApp />
+    </OryxProvider>
+  );
+}
+```
+
+## Using Theme Hooks
+
+### useTheme
+
+Access and change the current theme anywhere in your app:
+
+```tsx
+import { useTheme } from 'oryx-ui';
+
+function ThemeSwitcher() {
+  const { theme, changeTheme } = useTheme();
+
+  return (
+    <div>
+      <p>Current theme: {theme}</p>
+      <button onClick={() => changeTheme('theme-blueDark')}>
+        Switch to Blue Dark
+      </button>
+    </div>
+  );
+}
+```
+
+### useSize
+
+Control component sizes with the size hook:
+
+```tsx
+import { useSize } from 'oryx-ui';
+
+function SizeController() {
+  const { size, changeSize } = useSize();
+
+  return (
+    <div>
+      <p>Current size: {size}</p>
+      <button onClick={() => changeSize('compact')}>Compact</button>
+      <button onClick={() => changeSize('default')}>Default</button>
+      <button onClick={() => changeSize('large')}>Large</button>
+    </div>
+  );
+}
+```
+
+## Size Options
+
+Oryx UI supports three size variants:
+
+| Size | Description |
+|------|-------------|
+| `compact` | Smaller components for dense UIs |
+| `default` | Standard component sizing |
+| `large` | Larger components for touch-friendly interfaces |
+
+## Theme Switching Example
+
+Here's a complete example of a theme switcher component:
+
+```tsx
+import { useTheme, useSize, Select } from 'oryx-ui';
+
+function SettingsPanel() {
+  const { theme, changeTheme } = useTheme();
+  const { size, changeSize } = useSize();
+
+  const themes = [
+    { value: 'theme-amber', label: 'Amber' },
+    { value: 'theme-amberDark', label: 'Amber Dark' },
+    { value: 'theme-blue', label: 'Blue' },
+    { value: 'theme-blueDark', label: 'Blue Dark' },
+    // ... more themes
+  ];
+
+  const sizes = [
+    { value: 'compact', label: 'Compact' },
+    { value: 'default', label: 'Default' },
+    { value: 'large', label: 'Large' },
+  ];
+
+  return (
+    <div>
+      <Select
+        label="Theme"
+        placeholder="Select theme..."
+        defaultValue={theme}
+        options={[{ label: 'Themes', group: themes }]}
+        onValueChange={changeTheme}
+      />
+      
+      <Select
+        label="Size"
+        placeholder="Select size..."
+        defaultValue={size}
+        options={[{ label: 'Sizes', group: sizes }]}
+        onValueChange={changeSize}
+      />
+    </div>
+  );
+}
+```
+
+## Next Steps
+
+- Learn about the [AI Theme Agent](/guides/ai-agent/) that automatically applies themes
+- Browse the [Component Library](/components/accordion/)

@@ -1,40 +1,71 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: Welcome to Oryx UI
+description: A React component library with intelligent theming based on Radix UI primitives.
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: A React component library with intelligent theming based on Radix UI primitives. Features an AI-powered theme agent that learns your preferences and automatically applies optimal theme combinations.
   image:
-    file: ../../assets/houston.webp
+    file: ../../assets/oryx.svg
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Get Started
+      link: /guides/introduction/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
+    - text: View Components
+      link: /components/accordion/
       icon: external
       variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+## Features
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card title="40+ Theme Variants" icon="seti:css">
+		Beautiful color palettes with light and dark modes for every taste.
 	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
+	<Card title="3 Size Options" icon="setting">
+		Compact, default, and large component sizes to fit any design.
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="AI Theme Agent" icon="rocket">
+		Learns preferences and auto-applies themes based on time and context.
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
+	<Card title="Accessible" icon="approve-check">
+		Built on Radix UI primitives with full ARIA support.
 	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="TypeScript" icon="seti:typescript">
+		Complete type definitions included for a great developer experience.
+	</Card>
+</CardGrid>
+
+## Quick Start
+
+```tsx
+import { OryxProvider, Accordion, Select, AlertDialog } from 'oryx-ui';
+import 'oryx-ui/styles.css';
+
+function App() {
+  return (
+    <OryxProvider defaultTheme="theme-amber">
+      <YourApp />
+    </OryxProvider>
+  );
+}
+```
+
+## Next Steps
+
+<CardGrid>
+	<Card title="Installation" icon="laptop">
+		Learn how to install Oryx UI in your project. [Read the guide →](/guides/installation/)
+	</Card>
+	<Card title="Theming" icon="sun">
+		Explore the powerful theming system. [Learn more →](/guides/theming/)
+	</Card>
+	<Card title="Components" icon="puzzle">
+		Browse the full component library. [View components →](/components/accordion/)
+	</Card>
+	<Card title="AI Agent" icon="rocket">
+		Discover the AI-powered theme agent. [Explore →](/guides/ai-agent/)
 	</Card>
 </CardGrid>

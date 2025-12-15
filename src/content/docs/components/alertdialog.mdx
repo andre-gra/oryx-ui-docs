@@ -1,0 +1,106 @@
+---
+title: AlertDialog
+description: A modal dialog that interrupts the user's workflow to communicate important information and require a response.
+---
+
+# AlertDialog
+
+The `AlertDialog` component prompts users for a decision or confirms an important action. It overlays the main content until the user interacts with it.
+
+## Import
+
+```tsx
+import { AlertDialog } from 'oryx-ui';
+```
+
+## Usage
+
+```tsx
+import { AlertDialog } from 'oryx-ui';
+
+<AlertDialog
+  texts={{
+    buttonTrigger: "Delete",
+    content: "Are you sure?",
+    description: "This action cannot be undone.",
+    buttonCancel: "Cancel",
+    action: "Delete"
+  }}
+  onAction={() => handleDelete()}
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `texts` | `AlertDialogTexts` | Required | Text content for the dialog |
+| `onAction` | `() => void` | - | Callback when the action button is clicked |
+| `onCancel` | `() => void` | - | Callback when the cancel button is clicked |
+
+### AlertDialogTexts
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `buttonTrigger` | `string` | Text for the button that opens the dialog |
+| `content` | `string` | Main title/content of the dialog |
+| `description` | `string` | Descriptive text explaining the action |
+| `buttonCancel` | `string` | Text for the cancel button |
+| `action` | `string` | Text for the action/confirm button |
+
+## Examples
+
+### Delete Confirmation
+
+```tsx
+<AlertDialog
+  texts={{
+    buttonTrigger: "Delete Account",
+    content: "Delete your account?",
+    description: "This action cannot be undone. All your data will be permanently removed from our servers.",
+    buttonCancel: "Cancel",
+    action: "Yes, delete my account"
+  }}
+  onAction={() => deleteUserAccount()}
+/>
+```
+
+### Discard Changes
+
+```tsx
+<AlertDialog
+  texts={{
+    buttonTrigger: "Discard",
+    content: "Discard unsaved changes?",
+    description: "You have unsaved changes that will be lost if you proceed.",
+    buttonCancel: "Keep editing",
+    action: "Discard changes"
+  }}
+  onAction={() => discardChanges()}
+  onCancel={() => continueEditing()}
+/>
+```
+
+### Log Out Confirmation
+
+```tsx
+<AlertDialog
+  texts={{
+    buttonTrigger: "Log Out",
+    content: "Log out of your account?",
+    description: "You will need to sign in again to access your account.",
+    buttonCancel: "Stay signed in",
+    action: "Log out"
+  }}
+  onAction={() => logout()}
+/>
+```
+
+## Accessibility
+
+The AlertDialog component includes:
+
+- Focus trap within the dialog
+- Escape key closes the dialog
+- Proper ARIA roles and labels
+- Returns focus to trigger on close

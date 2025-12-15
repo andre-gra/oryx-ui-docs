@@ -1,0 +1,129 @@
+---
+title: Popover
+description: Displays rich content in a portal, triggered by a button.
+---
+
+# Popover
+
+The `Popover` component displays content in a floating panel triggered by a button. It's ideal for settings panels, forms, or additional information.
+
+## Import
+
+```tsx
+import { Popover } from 'oryx-ui';
+```
+
+## Usage
+
+```tsx
+import { Popover } from 'oryx-ui';
+
+<Popover
+  buttonTriggerLabel="Settings"
+  fields={[
+    {
+      fieldTitle: "Dimensions",
+      field: [{ label: "Width", htmlFor: "width", id: "width", defaultValue: "100%" }]
+    }
+  ]}
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `buttonTriggerLabel` | `string` | Required | Label for the trigger button |
+| `fields` | `FieldGroup[]` | Required | Array of field groups to display in the popover |
+
+### FieldGroup
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `fieldTitle` | `string` | Title for the field group |
+| `field` | `Field[]` | Array of fields in this group |
+
+### Field
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `label` | `string` | Label for the field |
+| `htmlFor` | `string` | HTML for attribute linking to input |
+| `id` | `string` | Unique ID for the input |
+| `defaultValue` | `string` | Default value for the input |
+
+## Examples
+
+### Settings Panel
+
+```tsx
+<Popover
+  buttonTriggerLabel="Settings"
+  fields={[
+    {
+      fieldTitle: "Dimensions",
+      field: [
+        { label: "Width", htmlFor: "width", id: "width", defaultValue: "100%" },
+        { label: "Height", htmlFor: "height", id: "height", defaultValue: "auto" }
+      ]
+    },
+    {
+      fieldTitle: "Spacing",
+      field: [
+        { label: "Padding", htmlFor: "padding", id: "padding", defaultValue: "16px" },
+        { label: "Margin", htmlFor: "margin", id: "margin", defaultValue: "0" }
+      ]
+    }
+  ]}
+/>
+```
+
+### User Profile Quick Edit
+
+```tsx
+<Popover
+  buttonTriggerLabel="Edit Profile"
+  fields={[
+    {
+      fieldTitle: "Personal Info",
+      field: [
+        { label: "Name", htmlFor: "name", id: "name", defaultValue: "John Doe" },
+        { label: "Email", htmlFor: "email", id: "email", defaultValue: "john@example.com" }
+      ]
+    }
+  ]}
+/>
+```
+
+### Display Options
+
+```tsx
+<Popover
+  buttonTriggerLabel="Display"
+  fields={[
+    {
+      fieldTitle: "Layout",
+      field: [
+        { label: "Columns", htmlFor: "columns", id: "columns", defaultValue: "3" },
+        { label: "Gap", htmlFor: "gap", id: "gap", defaultValue: "1rem" }
+      ]
+    },
+    {
+      fieldTitle: "Typography",
+      field: [
+        { label: "Font Size", htmlFor: "fontSize", id: "fontSize", defaultValue: "16px" },
+        { label: "Line Height", htmlFor: "lineHeight", id: "lineHeight", defaultValue: "1.5" }
+      ]
+    }
+  ]}
+/>
+```
+
+## Accessibility
+
+The Popover component includes:
+
+- Focus trap within the popover
+- Escape key closes the popover
+- Proper ARIA attributes
+- Click outside closes the popover
