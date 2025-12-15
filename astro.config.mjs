@@ -33,6 +33,10 @@ export default defineConfig({
                 label: 'API Reference',
                 autogenerate: { directory: 'reference' },
             },
+            {
+                label: 'Demos',
+                autogenerate: { directory: 'demos' },
+            },
         ],
 		}), preact()],
 });

@@ -1,49 +1,29 @@
-# Starlight Starter Kit: Basics
+# Oryx UI Documentation
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+Documentation for **Oryx UI** - a React component library with intelligent theming based on Radix UI primitives.
 
-```
-npm create astro@latest -- --template starlight
-```
+## Features
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- 🎨 **40+ Theme Variants**
+- 📐 **3 Size Options**
+- 🤖 **AI Theme Agent**
+- ♿ **Accessible**
+- 🎯 **TypeScript Support**
 
-## 🚀 Project Structure
+## Live Demo
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+Check out the live demo: [https://oryx-ui.onrender.com/](https://oryx-ui.onrender.com/)
 
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
-```
+## Documentation
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+- [Introduction](src/content/docs/guides/introduction.mdx)
+- [Installation](src/content/docs/guides/installation.mdx)
+- [Components](src/content/docs/components/accordion.mdx)
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+## Author
 
-Static assets, like favicons, can be placed in the `public/` directory.
+Created by [Andre Gra](https://powered-ai-cv.onrender.com/) ([GitHub](https://github.com/andre-gra)).
 
-## 🧞 Commands
+## License
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+MIT
