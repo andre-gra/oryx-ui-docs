@@ -5,14 +5,14 @@ A React component library with intelligent theming based on Radix UI primitives.
 ## Installation
 
 ```bash
-npm install oryx-ui
+npm install @andre-gra/oryx-ui
 ```
 
 ## Quick Start
 
 ```tsx
-import { OryxProvider, Accordion, Select, AlertDialog } from 'oryx-ui';
-import 'oryx-ui/styles.css';
+import { OryxProvider, Accordion, Select, AlertDialog } from '@andre-gra/oryx-ui';
+import '@andre-gra/oryx-ui/styles.css';
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
 ### Accordion
 
 ```tsx
-import { Accordion } from 'oryx-ui';
+import { Accordion } from '@andre-gra/oryx-ui';
 
 <Accordion
   items={[
@@ -49,7 +49,7 @@ import { Accordion } from 'oryx-ui';
 ### Select
 
 ```tsx
-import { Select } from 'oryx-ui';
+import { Select } from '@andre-gra/oryx-ui';
 
 <Select
   label="Choose fruit"
@@ -64,7 +64,7 @@ import { Select } from 'oryx-ui';
 ### AlertDialog
 
 ```tsx
-import { AlertDialog } from 'oryx-ui';
+import { AlertDialog } from '@andre-gra/oryx-ui';
 
 <AlertDialog
   texts={{
@@ -81,7 +81,7 @@ import { AlertDialog } from 'oryx-ui';
 ### NavigationMenu
 
 ```tsx
-import { NavigationMenu } from 'oryx-ui';
+import { NavigationMenu } from '@andre-gra/oryx-ui';
 
 <NavigationMenu
   items={[
@@ -100,7 +100,7 @@ import { NavigationMenu } from 'oryx-ui';
 ### Popover
 
 ```tsx
-import { Popover } from 'oryx-ui';
+import { Popover } from '@andre-gra/oryx-ui';
 
 <Popover
   buttonTriggerLabel="Settings"
@@ -141,7 +141,7 @@ Themes follow the naming pattern `theme-{color}` or `theme-{color}Dark`:
 ### Using Theme Hooks
 
 ```tsx
-import { useTheme, useSize } from 'oryx-ui';
+import { useTheme, useSize } from '@andre-gra/oryx-ui';
 
 function MyComponent() {
   const { theme, changeTheme } = useTheme();
@@ -160,7 +160,7 @@ function MyComponent() {
 The library includes an intelligent agent that learns from user interactions:
 
 ```tsx
-import { OryxProvider, useThemeAgent, ThemeAgentPanel } from 'oryx-ui';
+import { OryxProvider, useThemeAgent, ThemeAgentPanel } from '@andre-gra/oryx-ui';
 
 // Enable agent (on by default)
 <OryxProvider enableAgent={true}>

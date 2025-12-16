@@ -12,8 +12,8 @@ Oryx UI includes an intelligent AI-powered theme agent that learns from user int
 The theme agent is enabled by default. You can control it via the `OryxProvider`:
 
 ```tsx
-import { OryxProvider } from 'oryx-ui';
-import 'oryx-ui/styles.css';
+import { OryxProvider } from '@andre-gra/oryx-ui';
+import '@andre-gra/oryx-ui/styles.css';
 
 // Agent enabled (default)
 <OryxProvider enableAgent={true}>
@@ -31,7 +31,7 @@ import 'oryx-ui/styles.css';
 Access the agent's state and recommendations using `useThemeAgent`:
 
 ```tsx
-import { useThemeAgent } from 'oryx-ui';
+import { useThemeAgent } from '@andre-gra/oryx-ui';
 
 function Settings() {
   const { state, recommendation, getInsights } = useThemeAgent();
@@ -69,7 +69,7 @@ function Settings() {
 Oryx UI provides a ready-to-use `ThemeAgentPanel` component:
 
 ```tsx
-import { ThemeAgentPanel } from 'oryx-ui';
+import { ThemeAgentPanel } from '@andre-gra/oryx-ui';
 
 function SettingsPage() {
   return (
@@ -104,8 +104,8 @@ import {
   useThemeAgent, 
   ThemeAgentPanel,
   useTheme 
-} from 'oryx-ui';
-import 'oryx-ui/styles.css';
+} from '@andre-gra/oryx-ui';
+import '@andre-gra/oryx-ui/styles.css';
 
 function App() {
   return (

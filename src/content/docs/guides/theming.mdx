@@ -38,8 +38,8 @@ And more...
 Set the default theme when initializing the `OryxProvider`:
 
 ```tsx
-import { OryxProvider } from 'oryx-ui';
-import 'oryx-ui/styles.css';
+import { OryxProvider } from '@andre-gra/oryx-ui';
+import '@andre-gra/oryx-ui/styles.css';
 
 function App() {
   return (
@@ -57,7 +57,7 @@ function App() {
 Access and change the current theme anywhere in your app:
 
 ```tsx
-import { useTheme } from 'oryx-ui';
+import { useTheme } from '@andre-gra/oryx-ui';
 
 function ThemeSwitcher() {
   const { theme, changeTheme } = useTheme();
@@ -78,7 +78,7 @@ function ThemeSwitcher() {
 Control component sizes with the size hook:
 
 ```tsx
-import { useSize } from 'oryx-ui';
+import { useSize } from '@andre-gra/oryx-ui';
 
 function SizeController() {
   const { size, changeSize } = useSize();
@@ -109,7 +109,7 @@ Oryx UI supports three size variants:
 Here's a complete example of a theme switcher component:
 
 ```tsx
-import { useTheme, useSize, Select } from 'oryx-ui';
+import { useTheme, useSize, Select } from '@andre-gra/oryx-ui';
 
 function SettingsPanel() {
   const { theme, changeTheme } = useTheme();

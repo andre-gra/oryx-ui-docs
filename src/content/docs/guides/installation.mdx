@@ -16,17 +16,19 @@ Before you begin, ensure you have:
 
 ## Step 1: Install Oryx UI
 
+### ⚠️ Please note that the project is currently in alpha and is not ready for production use !!
+
 You can install Oryx UI using your preferred package manager:
 
 ```bash
 # Using npm
-npm install oryx-ui
+npm install @andre-gra/oryx-ui
 
 # Using yarn
-yarn add oryx-ui
+yarn add @andre-gra/oryx-ui
 
 # Using pnpm
-pnpm add oryx-ui
+pnpm add @andre-gra/oryx-ui
 ```
 
 ## Step 2: Set up the Provider
@@ -34,8 +36,8 @@ pnpm add oryx-ui
 Wrap your application with the `OryxProvider` to enable theming and the AI agent:
 
 ```tsx
-import { OryxProvider } from 'oryx-ui';
-import 'oryx-ui/styles.css';
+import { OryxProvider } from '@andre-gra/oryx-ui';
+import '@andre-gra/oryx-ui/styles.css';
 
 function App() {
   return (
@@ -58,7 +60,7 @@ function App() {
 Once the provider is set up, you can start using Oryx UI components:
 
 ```tsx
-import { Accordion, Select, AlertDialog } from 'oryx-ui';
+import { Accordion, Select, AlertDialog } from '@andre-gra/oryx-ui';
 
 function MyComponent() {
   return (
